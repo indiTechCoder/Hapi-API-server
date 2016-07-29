@@ -1,0 +1,230 @@
+{
+  "apiVersion": "0.1.1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://nishant-latitude-3450:8080",
+  "resourcePath": "/api/v1.1/company",
+  "apis": [
+    {
+      "path": "/api/v1.1/company",
+      "description": "Finds all Companys or one by name|degree query",
+      "operations": [
+        {
+          "method": "GET",
+          "authorizations": {
+            
+          },
+          "summary": "Finds all Companys or one by name|degree query",
+          "nickname": "apiv1.1company",
+          "type": "array",
+          "parameters": [
+            {
+              "type": "string",
+              "name": "name",
+              "paramType": "query"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "OK"
+            },
+            {
+              "code": 400,
+              "message": "Bad Request"
+            },
+            {
+              "code": 404,
+              "message": "Company Not Found"
+            },
+            {
+              "code": 500,
+              "message": "Internal Server Error"
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "items": {
+            "$ref": "apiv1.1company_GET_response"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/api/v1.1/company/{id}",
+      "description": "Finds a Company by id",
+      "operations": [
+        {
+          "method": "GET",
+          "authorizations": {
+            
+          },
+          "summary": "Finds a Company by id",
+          "nickname": "apiv1.1companyid",
+          "type": "apiv1.1companyid_GET_response",
+          "parameters": [
+            {
+              "type": "string",
+              "required": true,
+              "name": "id",
+              "paramType": "path"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "OK"
+            },
+            {
+              "code": 400,
+              "message": "Bad Request"
+            },
+            {
+              "code": 404,
+              "message": "Company Not Found"
+            },
+            {
+              "code": 500,
+              "message": "Internal Server Error"
+            }
+          ],
+          "produces": [
+            "application/json"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/api/v1.1/company/{id}",
+      "description": "Updates a Company",
+      "operations": [
+        {
+          "method": "PUT",
+          "authorizations": {
+            
+          },
+          "summary": "Updates a Company",
+          "nickname": "apiv1.1companyid",
+          "type": "void",
+          "parameters": [
+            {
+              "type": "string",
+              "required": true,
+              "name": "id",
+              "paramType": "path"
+            },
+            {
+              "type": "apiv1.1companyid",
+              "defaultValue": null,
+              "required": true,
+              "name": "body",
+              "paramType": "body"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "OK"
+            },
+            {
+              "code": 400,
+              "message": "Bad Request"
+            },
+            {
+              "code": 404,
+              "message": "Company Not Found"
+            },
+            {
+              "code": 500,
+              "message": "Internal Server Error"
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/api/v1.1/company/{id}",
+      "description": "Permanently deletes a Company",
+      "operations": [
+        {
+          "method": "DELETE",
+          "authorizations": {
+            
+          },
+          "summary": "Permanently deletes a Company",
+          "nickname": "apiv1.1companyid",
+          "type": "void",
+          "parameters": [
+            {
+              "type": "string",
+              "required": true,
+              "name": "id",
+              "paramType": "path"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "OK"
+            },
+            {
+              "code": 400,
+              "message": "Bad Request"
+            },
+            {
+              "code": 404,
+              "message": "Company Not Found"
+            },
+            {
+              "code": 500,
+              "message": "Internal Server Error"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "apiv1.1company_GET_response": {
+      "id": "apiv1.1company_GET_response",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "apiv1.1companyid_GET_response": {
+      "id": "apiv1.1companyid_GET_response",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "apiv1.1companyid": {
+      "id": "apiv1.1companyid",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
